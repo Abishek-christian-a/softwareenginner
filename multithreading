@@ -1,0 +1,53 @@
+import java.util.*;
+class Boot implements Runnable {
+    public void run() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a value for n:");
+        int n = sc.nextInt();
+        for (int i = 1; i <= n; i++) {
+            System.out.println("Updating data");
+        }
+        try {
+            Thread.sleep(8000);
+        } catch (InterruptedException e) {
+        
+            System.out.println("Thread interrupted: " + e.getMessage());
+        }
+    }
+}
+
+class Gio extends Thread {
+   public void run() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a name:");
+        String name = sc.next();
+        //System.out.println("My name is " + name);
+		for(int i=1;i<5;i++)
+		{
+			System.out.println(i);
+			System.out.println("My name is " + name);
+		}
+		try{
+			Thread.sleep(6000);
+		}
+		catch(InterruptedException e)
+		{
+			
+		}
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        Runnable b = new Boot();
+        Gio g = new Gio();
+		Thread t1=new Thread(b);
+        t1.start();
+        g.start();
+
+         t1.join();
+		/* if(b.isAlive())
+		 {
+			 System.out.println("still alive");
+		 }*/
+		System.out.println("good bye");
+    }
+}
