@@ -1,0 +1,46 @@
+class switch1{
+	 int num=3;
+	 public void display()
+	 {
+		switch(num)
+		{
+          case 1:
+            for(int i=0;i<=10;i++)
+			{
+               System.out.println(i);
+			}
+            break;
+			case 2:
+			 for(int i=10;i>=0;i--)
+			 {
+				 System.out.println(i);
+			 }
+			 break;
+			 case 3:
+			  for(int i=0;i<=10;i++)
+			  {
+				  if(i%2==0)
+				  {
+					  System.out.println(i);
+				  }
+			  }
+			  case 4:
+			    for(int i=0;i<=10;i++)
+				{
+					for(int j=0;j<=i;j++)
+					{
+						System.out.println( " * ");
+					}
+			    }
+			  break;
+			  default:
+			   System.out.println("invalid information");
+			   break;
+		}	
+	 }
+	
+  public static void main(String[]args){
+	 switch1 obj=new switch1();
+	 obj.display();
+  }
+	 }
