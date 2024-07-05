@@ -1,0 +1,32 @@
+import java.util.*;
+
+class dr extends Thread{
+	public void run()
+	{
+		Scanner sc=new Scanner(System.in);
+		 System.out.println("enter a n valve");
+		  int n=sc.nextInt();
+	  ArrayList<Integer> alist=new ArrayList<Integer>();
+	    int i;
+        for( i=0;i<n;i++)
+		{
+         alist.add(i);
+		 alist.set(0,11);
+		// alist.add("kathir");
+        }
+       try
+	   {
+         Thread.sleep(6000);
+          System.out.println(alist);
+		  System.out.println(alist.get(2));
+	   }
+      catch(InterruptedException e)
+	  {
+       
+	  }
+	}	  
+	public static void main(String[]args){
+		dr d=new dr();
+		d.start();
+	}
+	}
