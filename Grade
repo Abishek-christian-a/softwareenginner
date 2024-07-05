@@ -1,0 +1,32 @@
+import java.util.Scanner;
+class grade{
+	public void display()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter a marks:");
+		String Marks=sc.nextInt();
+		if(Marks<=100)
+		{
+			System.out.print("o grade");
+		}
+		else if(Marks<=90 && Marks>=80)
+		{
+			System.out.println(" A Grade ");
+		}
+		 if (marks <=70 && marks >=75)
+		 {
+			 System.out.println("B Grade");
+		 }
+		 else
+		 {
+			 System.out.println("FAil");
+		 }
+		 else
+		 {
+			 System.out.println("Absentend");
+		 }
+	public static void main(String[]args){
+		grade obj=new grade();
+		obj.dispaly();
+	}
+}
