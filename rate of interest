@@ -1,0 +1,49 @@
+import java.util.*;
+
+class bank {
+    float GetRateOfInterest() {
+        return 0;
+    }
+}
+
+class SBI extends bank {
+    float GetRateOfInterest() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter a sbi rf:");
+        double d = sc.nextDouble();
+        return (float) d; // Casting to float as return type is float
+    }
+}
+
+class Axis extends bank {
+    float GetRateOfInterest() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter a axis rof:");
+        double d = sc.nextDouble();
+        return (float) d; // Casting to float as return type is float
+    }
+}
+
+class icc extends bank {
+    float GetRateOfInterest() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter a icc rof:");
+        double d = sc.nextDouble();
+        return (float) d; // Casting to float as return type is float
+    }
+
+
+
+    public static void main(String[] args) {
+		Scanner sc=new  Scanner(System.in);
+		 System.out.println("enter a bank name:");
+		 String bankname=sc.nextLine();
+        bank b;
+        b = new SBI();
+        System.out.println("SBI rate of interest " + b.GetRateOfInterest());
+        b = new Axis();
+        System.out.println("Axis rate of  interest " + b.GetRateOfInterest());
+        b = new icc();
+        System.out.println("icc rate of interest " + b.GetRateOfInterest());
+    }
+}
