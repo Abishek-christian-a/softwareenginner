@@ -1,0 +1,25 @@
+import java.util.*;
+
+class kumar{
+	void shoe()
+	{
+		Scanner sc=new Scanner(System.in);
+		 System.out.println("enter a name :");
+		 String name=sc.nextLine();
+		  System.out.println("my name is " + name);
+	}
+}
+	class sankar extends kumar{
+		void shoe()
+		{
+			Scanner sc=new Scanner(System.in);
+			System.out.println("enter a name1:");
+			String name1=sc.nextLine();
+			System.out.println("my name is " + name1);
+		}
+	
+	  public static void main(String[]args){
+		  kumar obj=new sankar();//upcasting 
+		  obj.shoe();
+	  }
+	}
