@@ -1,0 +1,131 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class HealthInsuranceIntegration {
+
+    private static final String USER_AGENT = "Mozilla/5.0";
+
+    // Method to send GET request to external API
+    public String sendGetRequest(String url) throws Exception {
+        URL obj = new URL(url);
+        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+        con.setRequestMethod("GET");
+
+       
+        con.setRequestProperty("User-Agent", USER_AGENT);
+
+        int responseCode = con.getResponseCode();
+        if (responseCode == HttpURLConnection.HTTP_OK) { 
+            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            StringBuilder response = new StringBuilder();
+            String inputLine;
+
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+            return response.toString();
+        } else {
+            System.out.println("GET request failed");
+            return null;
+        }
+    }
+
+   
+    public void processPolicies(List<Policy> policies) {
+        for (Policy policy : policies) {
+            System.out.println("Processing policy: " + policy.getId());
+          
+        }
+    }
+
+   
+    public void processClaims(List<Claim> claims) {
+        for (Claim claim : claims) {
+            System.out.println("Processing claim: " + claim.getId());
+           
+        }
+    }
+
+    
+    public List<Policy> getUserPoliciesInput() {
+        Scanner scanner = new Scanner(System.in);
+        List<Policy> policies = new ArrayList<>();
+
+        System.out.print("Enter the number of policies: ");
+        int numberOfPolicies = Integer.parseInt(scanner.nextLine());
+
+        for (int i = 0; i < numberOfPolicies; i++) {
+            System.out.print("Enter policy ID: ");
+            int policyId = Integer.parseInt(scanner.nextLine());
+            policies.add(new Policy(policyId));
+        }
+
+        return policies;
+    }
+
+   
+    public List<Claim> getUserClaimsInput() {
+        Scanner scanner = new Scanner(System.in);
+        List<Claim> claims = new ArrayList<>();
+
+        System.out.print("Enter the number of claims: ");
+        int numberOfClaims = Integer.parseInt(scanner.nextLine());
+
+        for (int i = 0; i < numberOfClaims; i++) {
+            System.out.print("Enter claim ID: ");
+            int claimId = Integer.parseInt(scanner.nextLine());
+            claims.add(new Claim(claimId));
+        }
+
+        return claims;
+    }
+
+    public static void main(String[] args) {
+        HealthInsuranceIntegration integration = new HealthInsuranceIntegration();
+
+        try {
+            String response = integration.sendGetRequest("https://api.example.com/data");
+            System.out.println(response);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        List<Policy> policies = integration.getUserPoliciesInput();
+        List<Claim> claims = integration.getUserClaimsInput();
+
+      
+        integration.processPolicies(policies);
+        integration.processClaims(claims);
+    }
+}
+
+class Policy {
+    private int id;
+
+    public Policy(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+}
+
+class Claim {
+    private int id;
+
+    public Claim(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+}
