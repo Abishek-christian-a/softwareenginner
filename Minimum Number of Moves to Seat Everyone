@@ -1,0 +1,24 @@
+class Solution {
+    public int minMovesToSeat(int[] seats, int[] students) {
+        int i=0;
+    int sum=0;
+     Arrays.sort(seats);
+     Arrays.sort(students);
+    for( i=0;i<seats.length;i++)
+    {
+        
+        for( i=0;i<students.length;i++)
+        {
+            if(students[i]>=seats[i])
+            {
+          sum+=students[i]-seats[i];
+            }
+            else 
+            {
+                sum+=seats[i]-students[i];
+            }
+        }
+    }
+      return sum;
+        }
+    }
