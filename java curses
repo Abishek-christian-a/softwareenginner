@@ -1,0 +1,73 @@
+package Collectionpck;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
+
+public class Cursors {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+      ArrayList<Integer> al=new ArrayList<>();
+      al.add(10);   
+      al.add(20);
+      al.add(40);
+      al.add(50);
+      System.out.println(al);
+      Iterator i=al.iterator();
+      while(i.hasNext())
+      {
+    	  Integer a=(Integer)i.next();
+    	  if(a==10)
+    		  i.remove();
+    	  System.out.println(a);
+    	// System.out.println(i.next()); 
+      }
+      System.out.println(al);
+      
+      ListIterator li=al.listIterator();
+      while(li.hasNext())
+      {
+    	  Integer b=(Integer)li.next();
+    	  if(b==40)
+    		  li.add(100);//20 40 100 50
+    	  else if(b==20)
+    		  li.set(200);//200 40 100 50
+    	  else if(b==50)
+    		  li.remove(); // 200 40 100
+      }
+      while(li.hasPrevious())
+      {
+    	  System.out.println(li.previous());
+      }
+	}
+
+}
+package Collectionpck;
+import java.util.ArrayList;
+public class Emp {
+	Integer id;
+	String name;
+	String job;
+	Emp(Integer id,String name,String job)
+	{
+		this.id=id;
+		this.name=name;
+		this.job=job;
+	}
+   public String toString()
+   {
+	   return id+" "+name+" "+job;
+   }
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       ArrayList<Emp> al =new ArrayList<>();
+       al.add(new Emp(1,"A","Developer"));
+       Emp obj=new Emp(2,"B","Software");
+       al.add(obj);
+       al.add(new Emp(3,"C","Tester"));
+       System.out.println(al);
+       
+	}
+
+}
