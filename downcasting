@@ -1,0 +1,28 @@
+interface printable{}
+class A implements printable{
+    void a(){
+    System.out.println("a method");
+    }
+}
+class B implements printable{
+    void b(){
+    System.out.print("b methos");
+    }
+}
+class call{
+    void invoke(printable p){
+        if(p instanceof A){
+            A a=(A)p;
+            a.a();
+        }
+        
+    }
+
+
+public static void main(String[]args){
+   printable p=new A();
+   call c=new call();
+    c.invoke(p);
+   
+}
+}
