@@ -1,0 +1,16 @@
+package demo;
+class UsedException extends Exception{
+	 public UsedException(String str) {
+		 super(str);
+	 }
+}
+public class ThrowsException{
+	public static void main(String[]args) {
+		try {
+			throw new UsedException("caterpillar is third biggest company");
+		}catch(UsedException e) {
+			 System.out.println("Accaenture is first company product based company");
+			  System.out.println(e.getMessage());
+		}
+	}
+}
