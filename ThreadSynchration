@@ -1,0 +1,44 @@
+package demo;
+class Table{
+	void printable(int n ) {
+		for(int i=0;i<=5;i++) {
+			System.out.println(n*i);
+			try {
+				 Thread.sleep(1000);
+			}
+			catch(Exception e) {
+				System.out.println(e);
+			}
+		}
+	}
+}
+class Table1 extends Thread{
+	Table t;
+	 Table1(Table t){
+		 this.t=t;
+	 }
+	 public void run() {
+		 t.printable(5);
+	 }
+}
+class Table2 extends Thread{
+	Table t;
+	Table2(Table t){
+		this.t=t;
+	}
+	public void run() {
+		t.printable(100);
+	}
+}
+
+public class TestSynchration {
+	public static void main(String[]args) {
+		Table t=new Table();
+		 Table1 t1=new Table1(t);
+		  Table2 t2=new Table2(t);
+		  t1.start();
+		   t2.start();
+		 
+	}
+
+}
