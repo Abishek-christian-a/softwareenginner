@@ -1,0 +1,189 @@
+package demo;
+import java.util.*;
+
+class Policy {
+    private String policyId;
+    private String policyHolderName;
+    private String policyType;
+    private double premiumAmount;
+
+    public Policy(String policyId, String policyHolderName, String policyType, double premiumAmount) {
+        this.policyId = policyId;
+        this.policyHolderName = policyHolderName;
+        this.policyType = policyType;
+        this.premiumAmount = premiumAmount;
+    }
+
+    public String getPolicyId() {
+        return policyId;
+    }
+
+    public String getPolicyHolderName() {
+        return policyHolderName;
+    }
+
+    public String getPolicyType() {
+        return policyType;
+    }
+
+    public double getPremiumAmount() {
+        return premiumAmount;
+    }
+}
+
+class Claim {
+    private String claimId;
+    private String policyId;
+    private String claimDescription;
+    private double claimAmount;
+    private String claimStatus;
+
+    public Claim(String claimId, String policyId, String claimDescription, double claimAmount) {
+        this.claimId = claimId;
+        this.policyId = policyId;
+        this.claimDescription = claimDescription;
+        this.claimAmount = claimAmount;
+        this.claimStatus = "Pending";
+    }
+
+    public String getClaimId() {
+        return claimId;
+    }
+
+    public String getPolicyId() {
+        return policyId;
+    }
+
+    public String getClaimDescription() {
+        return claimDescription;
+    }
+
+    public double getClaimAmount() {
+        return claimAmount;
+    }
+
+    public String getClaimStatus() {
+        return claimStatus;
+    }
+
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}
+
+class Customer {
+    private String customerId;
+    private String name;
+    private String contactInfo;
+
+    public Customer(String customerId, String name, String contactInfo) {
+        this.customerId = customerId;
+        this.name = name;
+        this.contactInfo = contactInfo;
+    }
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getContactInfo() {
+        return contactInfo;
+    }
+}
+
+class HealthInsurance {
+    private List<Policy> policies = new ArrayList<>();
+    private List<Claim> claims = new ArrayList<>();
+    private List<Customer> customers = new ArrayList<>();
+
+  
+    public void addPolicy(Policy policy) {
+        policies.add(policy);
+    }
+    public void addClaim(Claim claim) {
+    	claims.add(claim);    }
+    public void addCustomers(Customer customer) {
+    	customers.add(customer);
+    }
+
+    public Policy getPolicy(String policyId) {
+        for (Policy policy : policies) {
+            if (policy.getPolicyId().equals(policyId)) {
+                return policy;
+            }
+        }
+        return null;
+    }
+	public Claim getClaimId(String ClaimId) {
+		for (Claim claim : claims) {
+            if (claim.getClaimId().equals(ClaimId)) {
+                return claim;
+            }
+        }
+		return null;
+	}
+	public Customer getCustomerId(String CustomerId) {
+		for(Customer customer:customers) {
+			if(customer.getCustomerId().equals(CustomerId)) {
+				return customer;
+			}
+		}
+		
+		return null;
+	}
+}
+
+public class HealthInsunences {
+    public static void main(String[] args) {
+        HealthInsurance healthInsurance = new HealthInsurance();
+         Claim claim=new Claim("p124","subash","chennai",10000.0);
+        Policy policy = new Policy("P123", "John Doe", "Health", 1000.0);
+        Customer customer=new Customer("p126","Sankar","sr nagar vivekanaanda 7th street");
+       
+        healthInsurance.addPolicy(policy);
+        healthInsurance.addClaim(claim);
+        healthInsurance.addCustomers(customer);
+
+        Policy retrievedPolicy = healthInsurance.getPolicy("P123");
+      
+        if (retrievedPolicy != null) {
+        	System.out.println("Policy Detials: ");
+            System.out.println("Policy ID: " + retrievedPolicy.getPolicyId());
+            System.out.println("Policy Holder Name: " + retrievedPolicy.getPolicyHolderName());
+            System.out.println("Policy Type: " + retrievedPolicy.getPolicyType());
+            System.out.println("Premium Amount: " + retrievedPolicy.getPremiumAmount());
+           //  System.out.println("claim Id: "+)
+        } else {
+            System.out.println("Policy not found.");
+        }
+        Claim retrievedClaim=healthInsurance.getClaimId("p124");
+        if( retrievedClaim!=null) {
+        	System.out.println("--------------------------------------------------------------");
+        	System.out.println("claim of the policy: ");
+        	 System.out.println("Claim ID :"+  retrievedClaim.getClaimId());
+        	 System.out.println("Claim  name :"+ retrievedClaim.getName()  );
+        	  System.out.println("Claim Desceription : " + retrievedClaim.getClaimDescription() );
+         	  System.out.println("Claim amount" + retrievedClaim.getClaimAmount() );
+         	//  System.out.println("--------------------------------------------------------------");
+  
+        }else {
+        	System.out.println("claim is still pranning");
+        }
+        Customer retrievedCustomer= healthInsurance. getCustomerId("p126");
+        if( retrievedCustomer!=null) {
+        	System.out.println("-------------------------------------------------------------------");
+        	System.out.println("Customer Detials :");
+        	System.out.println("Customer Id :"+retrievedCustomer.getCustomerId());
+        	 System.out.println("Customer name : "+retrievedCustomer.getName());
+        	  System.out.println("Customer info : "+retrievedCustomer.getCustomerId());
+        	  System.out.println("-------------------------------------------------------------------");
+        }else {
+        	System.out.println("customer is not resoning");
+        }
+    }
+}
