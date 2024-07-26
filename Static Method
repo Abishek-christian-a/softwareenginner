@@ -1,0 +1,20 @@
+package demo;
+interface Subash{
+  void run();
+  static int msg(int x)
+  {
+	  return x*x*x;
+  }
+}
+class Kavin implements Subash{
+	public  void run() {
+		 System.out.println("Angular js");
+	}
+}
+public class StaticMethod {
+	public static void main(String[]args) {
+		Subash s=new Kavin();
+		  s.run();
+		   System.out.println(Subash.msg(5));
+	}
+
