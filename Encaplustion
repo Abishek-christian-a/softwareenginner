@@ -1,0 +1,34 @@
+package demo;
+class Account{
+	//private static final String Accounr_number = null;
+	 long Account_number;
+	  String name,Email;
+	   public long getAccount_number() {
+		   return Account_number;
+	   }
+	   public void setAccount_number(long Account_number) {
+		  
+		this.Account_number=Account_number;
+	   }
+	   public String getname() {
+		   return name;
+	   }
+	   public void setname(String name) {
+		   this.name=name;
+	   }
+	   public String getEmail() {
+		   return Email;
+	   }
+	   public void setEmail(String Email) {
+		   this.Email=Email;
+	   }
+}
+public class Encaplustion {
+   public static void main(String[]args) {
+	   Account acc=new Account();
+	   acc.setAccount_number(100000000);
+	    acc.setname("abishek");
+	    acc.setEmail("abishekchristianc@gmail.com");
+	     System.out.println(acc.getAccount_number()+" "+acc.getname()+" "+acc.getEmail());
+   }
+}
