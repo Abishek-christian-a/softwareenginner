@@ -1,0 +1,14 @@
+interface Lambha{
+    public void draw();
+}
+public class LambhaExpression1{
+    public static void main(String[]args){
+        int width=10;
+        int breadth=20;
+        int area=width*breadth;
+         Lambha l=( )->{
+             System.out.println("Drawing "+" "+area+" "+"cm");
+         };
+         l.draw();
+    }
+}
