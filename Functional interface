@@ -1,0 +1,18 @@
+interface draw{
+    default void draw(){
+        System.out.println("i am drawer");
+    }
+}
+interface d extends draw{
+    void say(String msg);
+}
+public class functionalinterface implements d{
+    public void say(String msg){
+        System.out.println("c++ vs java "+msg);
+    }
+    public static void main(String[]args){
+        functionalinterface fie=new functionalinterface();
+        fie.draw();
+        fie.say("Winner is java");
+    }
+}
