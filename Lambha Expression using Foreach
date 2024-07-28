@@ -1,0 +1,13 @@
+import java.util.*;
+
+public class Lambha{
+    public static void main(String[]args){
+        List<String> l=new ArrayList<>();
+        l.add("Sineka");
+        l.add("Sofi");
+        l.add("manisha");
+        l.add("sharon");
+        l.add("yazhini");
+        l.forEach((n)->System.out.println(n));
+    }
+}
