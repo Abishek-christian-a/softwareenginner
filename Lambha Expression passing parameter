@@ -1,0 +1,12 @@
+interface Name{
+    public String name(String name);
+}
+public class LambhaExpressionreturn{
+    public static void main(String[]args){
+        Name n=(name)->{
+            return "Hello "+name;
+        };
+       System.out.println(n.name("abishek"));
+    }
+
+}
