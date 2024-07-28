@@ -1,0 +1,11 @@
+interface Addable{
+    int add(int a,int b);
+}
+public class Lambha{
+    public static void main(String[]args){
+        Addable ab1=(a,b)->(a+b);
+         System.out.println(ab1.add(10,20));
+         Addable ab2=(a,b)->(a*b);
+          System.out.println(ab2.add(20,30));
+    }
+}
