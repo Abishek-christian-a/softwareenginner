@@ -1,0 +1,30 @@
+import java.util.*;
+import java.util.stream.Stream;  
+class Product{
+
+   int id;
+   String name;
+   float prices;
+   Product(int id,String name,float prices){
+       super();
+        this.id=id;
+        this.name=name;
+        this.prices=prices;
+   }
+}
+public class Lambha10{
+    public static void main(String[]args){
+        List<Product> l1=new ArrayList<Product>();
+        l1.add(new Product(101,"Lenovo",11000f));
+        l1.add(new Product(102,"HP lapto",20000f));
+        l1.add(new Product(103,"Dell lapttop",300000f));
+        l1.add(new Product(104,"asur laptop",40000f));
+        l1.add(new Product(105,"soap",50000f));
+        
+        Stream<Product> filter_data=l1.stream().filter(p->p.prices>20000);
+        filter_data.forEach(
+            Product->System.out.println(Product.name+" : "+Product.prices)
+            );
+          
+    }
+}
