@@ -1,0 +1,18 @@
+import java.util.function.BiConsumer;  
+
+class Bicusmer{
+    static void play(String name,Integer age){
+        System.out.println(name+" "+age);
+    }
+}
+public class BiconsumerInterface{
+    public static void main(String[]args){
+        BiConsumer<String,Integer>biconer=Bicusmer::play;
+        biconer.accept("sankar",42);
+        biconer.accept("feri",67);
+        biconer.accept("redsr",375);
+        biconer.accept("rahul",77);
+        BiConsumer<String,Integer>biconer2=(name,age)->System.out.println(name+" "+age);
+        
+    }
+}
