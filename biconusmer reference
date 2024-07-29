@@ -1,0 +1,19 @@
+import java.util.function.BiConsumer;
+import java.util.Map;
+import java.util.HashMap;
+
+class Bisumer{
+    static void play(Map<String,Integer>map,String Mapname){
+        map.forEach((key,val)->System.out.println(key+" "+val));
+    }
+}
+public class Bicusmer{
+    public static void main(String[]args){
+        Map<String,Integer>map=new HashMap<String,Integer>();
+        map.put("abishek",100);
+        map.put("mythre",99);
+        map.put("rahul is fail",8);
+        BiConsumer<Map<String,Integer>,String> bisoner=Bisumer::play;
+        bisoner.accept(map,"student");
+    }
+}
