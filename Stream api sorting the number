@@ -1,0 +1,13 @@
+import java.util.*;
+import java.util.stream.Stream;
+
+public class demo{
+    public static void main(String[]args){
+        List<Integer> nums=Arrays.asList(9,2,6,7,1,111);
+        
+        Stream<Integer> data=nums.stream();
+         Stream<Integer> sortednumber=data.sorted();
+         
+         sortednumber.forEach(n->System.out.println(n));
+    }
+}
