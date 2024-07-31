@@ -1,0 +1,21 @@
+interface drawable{
+    void draw();
+}
+class Rectangle implements drawable{
+    public void draw(){
+        System.out.println("Rectangle is shaped");
+    }
+}
+class Circle implements drawable{
+    public void draw(){
+        System.out.println("Circle shaped");
+    }
+}
+public class interface1{
+    public static void main(String[]args){
+        drawable d=new Rectangle();
+        d.draw();
+        drawable d1=new Circle();
+        d1.draw();
+    }
+}
