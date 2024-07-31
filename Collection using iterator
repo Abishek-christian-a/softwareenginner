@@ -1,0 +1,17 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.*;
+public class Collection{
+    public static void main(String[]args){
+        ArrayList<Integer> alist=new ArrayList<>();
+        alist.add(1);
+        alist.add(6);
+        alist.add(663);
+        alist.add(35);
+        alist.add(3543);
+        Iterator itr=alist.iterator();
+        while(itr.hasNext()){
+                System.out.println(itr.next());
+        }
+    }
+}
