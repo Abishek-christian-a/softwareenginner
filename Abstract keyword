@@ -1,0 +1,27 @@
+abstract class bike{
+    abstract void play();
+}
+
+class Honda extends bike{
+    void play(){
+        System.out.println("honda is super");
+    }
+}
+class Yauma extends bike{
+    void play(){
+        System.out.println("yauma is jdk");
+    }
+}
+public class Royal extends bike{
+    void play(){
+         System.out.println("royal is classic");
+    }
+    public static void main(String[]args){
+        Royal ref=new Royal();
+        ref.play();
+        Yauma ref1=new Yauma();
+        ref1.play();
+         Honda ref3=new Honda();
+         ref3.play();
+    }
+}
