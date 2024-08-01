@@ -1,0 +1,55 @@
+import java.util.*;
+import java.util.stream.Collectors;   
+import java.util.stream.Stream;
+
+class Product { 
+    int id;
+    String productName;  
+    int price;
+
+    Product(int id, String productName, int price) {
+        this.id = id;
+        this.productName = productName;
+        this.price = price;
+    }
+    
+    @Override
+    public String toString() {
+        return id + " " + productName + " " + price;
+    }
+}
+
+public class Lambda {  
+    public static void main(String[] args) {
+        List<Product> list = new ArrayList<>();
+
+        list.add(new Product(67, "djkfjk", 202029));
+        list.add(new Product(118, "ueyuei", 198292));
+        list.add(new Product(2726, "dhgdigdi", 9037));
+        list.add(new Product(78822, "dgdguu", 92200));
+        list.add(new Product(6726, "ddjssgsx", 16762));
+
+        Double average = list.stream().collect(Collectors.averagingDouble(p -> p.price));
+        Long count = list.stream().collect(Collectors.counting());
+        System.out.println(average);
+        System.out.println(count);
+        Map<Integer, List<Product>> map = list.stream().collect(Collectors.groupingBy(p -> p.id));
+        Map<Integer,Long>map1=list.stream().collect(Collectors.groupingBy(p->p.id,Collectors.counting()));
+        Map<String, Integer> map4 = list.stream()
+        .collect(Collectors.groupingBy(
+                p -> p.productName, 
+                Collectors.summingInt(p -> p.productName.length())
+        ));
+       String gname=list.stream().map(p->p.productName).collect(Collectors.joining(" "));
+        Optional<Integer> max = list.stream()
+        .map(p -> p.price)
+       .collect(Collectors.maxBy(Comparator.naturalOrder()));
+     Map<Integer,String>map6=list.stream().collect(Collectors.toMap(p->p.id,p2->p2.productName));
+      System.out.println(map6);
+         System.out.println(max);
+        System.out.println(map);
+        System.out.println(map1);
+        System.out.println(map4);
+        System.out.println(gname);
+    }
+}
