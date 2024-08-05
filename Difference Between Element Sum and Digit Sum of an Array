@@ -1,0 +1,18 @@
+class Solution {
+    public int differenceOfSum(int[] nums) {
+        int n = nums.length;
+        int sumOfNumbers = 0;
+        int sumOfDigits = 0;
+
+        for (int num : nums) {
+            sumOfNumbers += num;
+            int temp = num;
+            while (temp > 0) {
+                sumOfDigits += temp % 10;
+                temp /= 10;
+            }
+        }
+
+        return sumOfNumbers - sumOfDigits;
+    }
+}
