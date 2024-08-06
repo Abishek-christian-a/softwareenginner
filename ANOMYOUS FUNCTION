@@ -1,0 +1,39 @@
+package FirstServelet;
+
+public class Parent {
+     public static void abc() {
+    	 System.out.println("Education is sycs");
+     }
+     public void Insurances() {
+    	 System.out.println("udgugudv");
+    	 
+     }
+     public void Fineracjvs() {
+    	  System.out.println("gdudu");
+     }
+}
+//-------------------------------------------------------//
+package FirstServelet;
+
+
+public class Child extends Parent{
+    public void Parenter() {
+    	 System.out.println("My life is My life is rule");
+    }
+}
+//----------------------------------------------------//
+package FirstServelet;
+
+public class Runner {
+   public static void main(String[]args) {
+	   Parent obj=new Parent()
+			   {
+		 	     public void abc1() {
+		 	    	 System.out.println("iddvgjdvg");
+		 	     }
+			   };
+			   Child.abc();
+			   obj.Insurances();
+			  // obj.abc1();
+   }
+}
