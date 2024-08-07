@@ -1,0 +1,12 @@
+import java.util.function.Consumer;
+
+public class Lambha{
+	public static void main(String[]args) {
+		Runnable runnable=()->System.out.println("Kathir iss going to home");
+		
+		runnable.run();//Lambha Expression
+		
+		Consumer<Integer> consumer=(num1)->System.out.println(num1);
+		consumer.accept(10);//Argument passing Lambha Expression
+	}
+}
