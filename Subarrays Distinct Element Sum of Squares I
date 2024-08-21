@@ -1,0 +1,18 @@
+class Solution {
+    public int sumCounts(List<Integer> nums) {
+     int n=nums.size();
+     int result=0;
+
+     for(int i=0;i<n;i++){
+        List<Integer>DistinctNumber=new ArrayList<>();
+         for(int j=i;j<n;j++){
+            if(!DistinctNumber.contains(nums.get(j))){
+                DistinctNumber.add(nums.get(j));
+            }
+            result+=DistinctNumber.size() * DistinctNumber.size();
+           
+         }
+     }  
+     return result;
+    }
+}
