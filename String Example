@@ -1,0 +1,27 @@
+package HealthInsuranceIntegration;
+
+import java.util.Scanner;
+public class StringExample {
+	
+
+
+
+public static void main(String[] args) {
+	String input="/Name=\"Abishek christian\"/CompsnyName=\"Uniq Technologies\"/Experiences=\"0 years\"";
+	  Scanner sc=new Scanner(System.in);
+	   System.out.println("enter a usercharacter:");
+	  String userInput =sc.next();
+	  
+	   String[]fsplit= input.split("/");
+	   System.out.println(fsplit);
+	   
+	   for(String firstsplit:fsplit) {
+		 String[] secondsplit=   firstsplit.split("=");
+		   for(String ssplit:secondsplit) {
+			   if(userInput.equals(ssplit)) {
+				   System.out.println(secondsplit[1]);
+			   }
+		   }
+	   }
+}
+}
