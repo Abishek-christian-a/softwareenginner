@@ -1,0 +1,21 @@
+package HealthInsuranceIntegration;
+
+public class ExtractNUmber {
+     public static void main(String[]args) {
+    	 String input="a2b3c4";
+    	   StringBuffer obj=new StringBuffer();
+    	   StringBuffer obj1=new StringBuffer();
+    	    for(char input1:input.toCharArray()) {
+    	    	if(input1>='a'&&input1<='z') {
+    	    		obj.append(input1);
+    	    	}
+    	    }
+    	 System.out.println(obj);
+    	 for(char Input2:input.toCharArray()) {
+    		 if(Input2>='0'&& Input2<='9') {
+    			 obj1.append(Input2);
+    		 }
+    	 }
+    	 System.out.println(obj1);
+     }
+}
