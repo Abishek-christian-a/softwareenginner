@@ -1,0 +1,14 @@
+class Solution {
+    public int addedInteger(int[] nums1, int[] nums2) {
+        int sum1=0;
+
+        for(int num1:nums1){
+            sum1+=num1;
+        }
+        int sum2=0;
+        for(int num2:nums2){
+            sum2+=num2;
+        }
+        return (sum2-sum1)/nums1.length;
+    }
+}
